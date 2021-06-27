@@ -18,5 +18,8 @@ async def on_ready():  # event client has established connection with discord AP
             break
 
     print(f"{bot.user} is in guild {guild.name} ID: {guild.id} ")
+    members = "\n - ".join([member.name for member in guild.members])
+    print("Guild Members")
+    print(f'- {members}')
 
 bot.run(token)
