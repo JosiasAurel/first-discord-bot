@@ -72,4 +72,10 @@ async def create_channel_handler(ctx, channel_name: str):
         await curr_guild.create_text_channel(channel_name)
 
 
+@bot.event
+async def on_command_error(ctx, error):
+    # if the error is of type check failure -> role
+    if isinstance(error, commands.errors.CheckFailure):
+        await ctx.send("You do not have permission to create a channel. You have to be Admin")
+
 bot.run(token)
