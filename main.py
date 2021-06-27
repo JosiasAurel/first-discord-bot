@@ -59,4 +59,17 @@ async def great_user(ctx):
 async def great_user(ctx, name: str):
     await ctx.send(f" Hello {name} ")
 
+# command to create channel
+
+
+@bot.command(name="createChannel")
+@commands.has_role("admin")  # check if is admin
+async def create_channel_handler(ctx, channel_name: str):
+    curr_guild = ctx.guild
+    is_existing_channel = discord.utils.find(
+        lambda c: c.name == channel_name, curr_guild.channels)
+    if not is_existing_channel:
+        await curr_guild.create_text_channel(channel_name)
+
+
 bot.run(token)
