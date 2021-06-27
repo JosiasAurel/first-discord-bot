@@ -26,4 +26,14 @@ async def on_member_join(member):
     await member.create_dm()
     await member.dm_channel.send(f" Hi, {member.name}, Welcome to this discord server ")
 
+
+@bot.event
+async def on_message(message):
+    if message.author == bot.user:  # if the bot wrote the message, do not send special message
+        return
+
+    if message.content == "hello":
+        await message.channel.send("Beep boop? i hear you bro!!")
+
+
 bot.run(token)
