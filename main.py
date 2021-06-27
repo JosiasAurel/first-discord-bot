@@ -34,6 +34,7 @@ async def on_message(message):
 
     if message.content == "hello":
         await message.channel.send("Beep boop? i hear you bro!!")
-
+    elif message.content == "makeException":
+        raise discord.DiscordException
 
 bot.run(token)
