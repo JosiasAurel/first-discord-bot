@@ -62,7 +62,7 @@ async def great_user(ctx, name: str):
 # command to create channel
 
 
-@bot.command(name="createChannel")
+@bot.command(name="createChannel" help="Creates a new channel. Takes a name e.g createChannel test")
 @commands.has_role("admin")  # check if is admin
 async def create_channel_handler(ctx, channel_name: str):
     curr_guild = ctx.guild
