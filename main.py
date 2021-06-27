@@ -20,4 +20,10 @@ async def on_ready():  # event client has established connection with discord AP
     print("Guild Members")
     print(f'- {members}')
 
+
+@bot.event
+async def on_member_join(member):
+    await member.create_dm()
+    await member.dm_channel.send(f" Hi, {member.name}, Welcome to this discord server ")
+
 bot.run(token)
